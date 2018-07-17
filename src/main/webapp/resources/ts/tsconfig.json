@@ -1,0 +1,22 @@
+{
+	"files": [
+		"login.ts",
+		"main.ts",
+		"components/alertBox.ts",
+		"components/eventBus.ts",
+		"components/loadingBar.ts",
+		"globals.d.ts",
+		"vue-global.d.ts",
+		"vue-resource-global.d.ts"
+	],
+	"compilerOptions": {
+		"outDir": "../js",
+		// this aligns with Vue's browser support
+		"target": "es6",
+		// this enables stricter inference for data properties on `this`
+		"strict": true,
+		// if using webpack 2+ or rollup, to leverage tree shaking:
+		"module": "es2015",
+		"moduleResolution": "node"
+	}
+}

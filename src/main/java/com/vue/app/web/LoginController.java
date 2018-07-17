@@ -3,47 +3,43 @@ package com.vue.app.web;
 import com.vue.app.repo.model.User;
 import com.vue.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+@PropertySource("classpath:messages.properties")
 public class LoginController {
+
+    @Autowired
+    Environment env;
 
     @Autowired
     UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@RequestParam(value = "error", required = false) String error,
-                        @RequestParam(value = "logout", required = false) String logout,
-                        Model model) {
-
-        model.addAttribute("error", error != null);
-        model.addAttribute("msg", logout != null);
-
+    public String login() {
         return "login/login";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(@RequestParam(value = "error", required = false) String error,
-                        @RequestParam(value = "success", required = false) String success,
-                        Model model) {
-
-        model.addAttribute("error", error != null);
-        model.addAttribute("success", success != null);
-
-        return "login/register";
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @ResponseBody
-    public RedirectView registerForm(@ModelAttribute("userDTO") User user) {
+    @RequestMapping(value = "/registro", method = RequestMethod.POST,
+    consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<?> registerForm(@RequestBody User user) {
+        // Si el nombre de usuario ya está devolvemos el error para tratarlo en el front:
         if (userService.exists(user.getUsername())) {
-            return new RedirectView("register?error");
+            return new ResponseEntity<>(new Error(env.getProperty("registro.yaexiste")), HttpStatus.NOT_ACCEPTABLE);
         } else {
-            userService.register(user);
-            return new RedirectView("register?success");
+            try {
+                user = userService.register(user);
+            } catch (Exception e) {
+                // Si se produce error inesperado también lo tratamos en el front, diferenciándolo con otro código de HttpStatus:
+                return new ResponseEntity<>(new Error(e.getCause().getMessage()), HttpStatus.BAD_REQUEST);
+            }
+            return new ResponseEntity<>(user, HttpStatus.OK);
         }
     }
 }

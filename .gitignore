@@ -4,3 +4,6 @@
 
 # IntelliJ
 .idea
+
+# Sass
+/src/main/webapp/resources/.sass-cache

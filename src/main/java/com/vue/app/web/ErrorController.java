@@ -17,7 +17,7 @@ public class ErrorController {
     public String accesssDenied(Model model) {
         // check if user is login
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
+        if (auth != null && !(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetail = (UserDetails) auth.getPrincipal();
             model.addAttribute("username", userDetail.getUsername());
         }

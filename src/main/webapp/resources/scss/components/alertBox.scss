@@ -1,0 +1,125 @@
+// Cuadros de alerta:
+@mixin alertBox() {
+	position: fixed;
+	display: block;
+	z-index: 2;
+	top: 5%;
+	left: 20%;
+	width: 60%;
+	text-align: center;
+	@media (max-width: 767px) {
+		left: 12%;
+		width: 76%;
+	}
+
+	& .alert {
+		display: inline-block;
+		width: 80%;
+		font-family: Roboto-Regular;
+		font-size: 16px;
+		animation-name: alertBoxEnter;
+		animation-duration: 1s;
+
+		&.closed {
+			animation-name: alertBoxOut;
+			animation-direction: reverse;
+			animation-duration: 1s;
+			opacity: 0;
+		}
+
+		& button {
+			margin-top: 2px;
+			color: white;
+
+			&:hover, &:active, &:focus, &:checked {
+				outline: none;
+				@include light-hover-text(white);
+			}
+		}
+	}
+	
+	& .alert-success {
+		background: linear-gradient(to bottom right,
+		rgba(70, 186, 13, 0.7), rgba(108, 255, 34, 0.7), rgba(154, 255, 103, 0.7));
+	}
+
+	& .alert-danger {
+		background: linear-gradient(to bottom right,
+		rgba(199, 43, 23, 0.7), rgba(255, 50, 23, 0.7), rgba(255, 136, 99, 0.7));
+	}
+
+	& .alert-info {
+		background: linear-gradient(to bottom right,
+		rgba(42, 31, 240, 0.7), rgba(53, 134, 255, 0.7), rgba(118, 251, 255, 0.7));
+	}
+
+	& .alert-warning {
+		background: linear-gradient(to bottom right,
+		rgba(255, 155, 14, 0.7), rgba(255, 185, 21, 0.7), rgba(255, 244, 20, 0.7));
+	}
+}
+
+@keyframes alertBoxEnter {
+    0% {
+		width: 10%;
+		opacity: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: rgba(255, 255, 255, 0);
+	}
+	30% {
+		opacity: 1;
+		width: 10%;
+	}
+    40% {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: rgba(255, 255, 255, 0);
+	}
+	70% {
+		width: 100%;
+	}
+    90% {
+		white-space: none;
+		overflow: none;
+		text-overflow: none;
+		width: 80%;
+		color: white;
+	}
+}
+
+/* Por desgracia toca repetir la animación porque CSS sólo corre 1 animación
+por elemento, no se puede correr la misma normal y después reverse: */
+@keyframes alertBoxOut {
+    0% {
+		width: 10%;
+		opacity: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: rgba(255, 255, 255, 0);
+	}
+	30% {
+		opacity: 1;
+		width: 10%;
+	}
+    40% {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: rgba(255, 255, 255, 0);
+	}
+	70% {
+		width: 100%;
+	}
+    100% {
+		opacity: 1;
+		white-space: none;
+		overflow: none;
+		text-overflow: none;
+		width: 80%;
+		color: white;
+	}
+}

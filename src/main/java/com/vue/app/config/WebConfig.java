@@ -21,8 +21,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      * los recursos estáticos en vez de el servlet: */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/web/assets/**")
-                .addResourceLocations("/assets/");
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
     }
 
     @Bean

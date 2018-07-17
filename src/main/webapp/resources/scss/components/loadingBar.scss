@@ -1,0 +1,104 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+
+.loading-bar {
+	position: fixed;
+   	z-index: 1999;
+  	top: 0%;
+   	height: 100%;
+   	width: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	animation-name: loadingStart;
+	animation-duration: 0.2s;
+}
+
+.loading-bar.end {
+	opacity: 0;
+	animation-name: loadingEnd;
+	animation-duration: 0.2s;
+}
+
+.loading-content {
+   	position: fixed;
+	z-index: 2000;
+	height: 140px;
+	width: 140px;
+	top: 40%;
+	left: 50%;
+	margin-top: -70px; // La mitad del height
+	margin-left: -70px; // La mitad del width
+	// top, right, bottom, left:
+	padding: 8px 15px 8px 15px;
+	background: white;
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+
+	& .bar1, & .bar2, & .bar3, & .bar4, 
+	& .bar5, & .bar6, & .bar7, & .bar8 {
+		display: inline-block;
+		height: 100%;
+		width: 9%;
+		margin-left: 4%;
+		background: lighten($azulLogin, 40%);
+	}
+	& .bar1 {
+		margin-left: 0px;
+	}
+
+	& .inner-bar {
+		display: block;
+		height: 40%;
+		margin-top: 38px; // Ojo a esto, debería ser 36% pero no sé por qué eso falla
+		background: $azulLogin;
+
+		animation-name: barras-loading;
+		animation-duration: 1s;	
+		animation-iteration-count: infinite;
+	}
+	& .bar1 .inner-bar { animation-delay: 0s; }
+	& .bar2 .inner-bar { animation-delay: 0.06s; }
+	& .bar3 .inner-bar { animation-delay: 0.12s; }
+	& .bar4 .inner-bar { animation-delay: 0.18s; }
+	& .bar5 .inner-bar { animation-delay: 0.24s; }
+	& .bar6 .inner-bar { animation-delay: 0.3s; }
+	& .bar7 .inner-bar { animation-delay: 0.36s; }
+	& .bar8 .inner-bar { animation-delay: 0.42s; }
+}
+
+
+@keyframes loadingStart {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes loadingEnd {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes barras-loading {
+	0% {
+		height: 40%;
+		margin-top: 38px;
+	}
+	15% {
+		height: 100%;
+		margin-top: 0%;
+	}
+	30% {
+		height: 40%;
+		margin-top: 38px;
+	}
+	100% {
+		height: 40%;
+		margin-top: 38px;
+	}
+}

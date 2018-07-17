@@ -1,0 +1,83 @@
+// Efectos de aclarado / oscurecido para background:
+@mixin light-hover-back($color, $claridad: 15%) {
+	background: $color;
+	// HOVER OFF:
+   	transition: background 0.4s;
+
+	&:hover {
+		background: lighten($color, $claridad);
+		// HOVER ON:
+   		transition: background 0.4s;
+	}
+}
+
+@mixin dark-hover-back($color, $oscuridad: 15%) {
+	background: $color;
+	// HOVER OFF:
+	transition: background 0.4s;
+
+	&:hover {
+		background: darken($color, $oscuridad);
+		// HOVER ON:
+   		transition: background 0.4s;
+	}
+}
+
+// Efectos de aclarado / oscurecido para texto:
+@mixin light-hover-text($color, $claridad: 15%) {
+	color: $color;
+	// HOVER OFF:
+   	transition: color 0.4s;
+
+	&:hover {
+		color: lighten($color, $claridad);
+		// HOVER ON:
+   		transition: color 0.4s;
+	}
+}
+
+@mixin dark-hover-text($color, $oscuridad: 15%) {
+	color: $color;
+	// HOVER OFF:
+	transition: color 0.4s;
+
+	&:hover {
+		color: darken($color, $oscuridad);
+		// HOVER ON:
+   		transition: color 0.4s;
+	}
+}
+
+// Bloques de login / registro:
+@mixin login-registro($color, $logoPath) {
+	& .header {
+		background: $color;
+	}
+
+	& .logo {
+		background-image: $logoPath;
+	}
+
+	& .content .form-signin {
+		& input[type=text]:focus,
+		& input[type=password]:focus {
+			border-bottom: 1.5px solid $color;
+		}
+	}
+
+	& p button {
+		background: none;
+		border: none;
+		outline: none;
+		padding: 0;
+		color: $color;
+
+		&:hover {
+			@include dark-hover-text($color);
+		}
+	}
+
+	& input[type="submit"] {
+		@include light-hover-back($color);
+	}
+}

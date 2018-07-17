@@ -1,0 +1,2 @@
+## Vigila todos los ficheros en /scss y los compila en /css (usar desde /webapp/resources):
+sass --watch scss:css

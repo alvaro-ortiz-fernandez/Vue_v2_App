@@ -70,14 +70,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/web/LoginController.java">
+      <file leaf-file-name="AuthSuccessHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthSuccessHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="41" column="8" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+            <state relative-caret-position="342">
+              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthFailureHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthFailureHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -87,8 +108,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -112,6 +133,16 @@
       <find>exists</find>
       <find>findOne</find>
       <find>registerForm</find>
+      <find>register</find>
+      <find>Error</find>
+      <find>á</find>
+      <find>ó</find>
+      <find>í</find>
+      <find>onAuthenticationFailure</find>
+      <find>login</find>
+      <find>getParameter</find>
+      <find>authority</find>
+      <find>logout.success</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -589,9 +620,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6121374353196" />
+        <entry key="$PROJECT_DIR$" value="6122059725345" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="3846046509" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="860220578" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2083459160" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="4270720256" />
       </map>
@@ -824,36 +855,42 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/impl/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/datasource.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/RepositoryConfig.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/web/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/FrontController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/NoWebComponents.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/403.html" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/SecurityWebApplicationInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/admin.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/accessDenied.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/hello.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/web/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/web/ErrorController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/Register.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/repo/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/register.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/master.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/home.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/main.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/layout.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/web/ErrorController.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthenticationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vue/app/web/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthFailureHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthSuccessHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
       </list>
     </option>
   </component>
@@ -864,9 +901,14 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/src/main/webapp/resources/ts/node_modules/@types/jquery/package.json" />
+      <path value="$PROJECT_DIR$/src/main/webapp/resources/ts/node_modules/@types/vue-resource/node_modules/vue/package.json" />
+      <path value="$PROJECT_DIR$/src/main/webapp/resources/ts/node_modules/@types/vue-resource/package.json" />
+      <path value="$PROJECT_DIR$/src/main/webapp/resources/ts/node_modules/vue/package.json" />
+    </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -878,6 +920,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app_main" type="cbb8eebc:String" user="app_main" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app_main" type="cbb8eebc:String" user="app_main" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="Vue v2 App" type="cbb8eebc:String" user="Vue v2 App" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -927,35 +1000,6 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="repo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="repo" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="repo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -980,6 +1024,42 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vue v2 App" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
@@ -1079,37 +1159,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="app_main" type="cbb8eebc:String" user="app_main" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="app_main" type="cbb8eebc:String" user="app_main" />
-              <item name="src/main" type="cbb8eebc:String" user="src/main" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="Vue v2 App" type="cbb8eebc:String" user="Vue v2 App" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1126,22 +1175,25 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\WEB-INF\views\home" />
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\WEB-INF\views\login" />
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\resources" />
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\java\com\vue\app\repo\model" />
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.vue.app.repo.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources\js\plugins" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources\css" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources\images" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources\css\plugins" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.vue.app.repo.model" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\java\com\vue\app" />
-      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\resources\images\login" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\WEB-INF\views\home" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\webapp\WEB-INF\views\login" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\resources" />
+      <recent name="G:\xampp\htdocs\VueJS\Vue v2 App\src\main\java\com\vue\app\repo\model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1160,6 +1212,23 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
+    <configuration name="Vue v2 App [appRunDebug]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="appRunDebug" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
     <configuration name="Vue v2 App [appRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -1177,7 +1246,7 @@
         <option name="vmOptions" />
       </ExternalSystemSettings>
     </configuration>
-    <configuration name="Vue v2 App [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vue v2 App [build]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -1227,12 +1296,25 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="app" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+    </configuration>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.Vue v2 App [appRunDebug]" />
       <item itemvalue="Gradle.Vue v2 App [build]" />
+      <item itemvalue="Remote.app" />
       <item itemvalue="Gradle.Vue v2 App [publishToMavenLocal]" />
       <item itemvalue="Gradle.Vue v2 App [appRun]" />
     </list>
@@ -1240,7 +1322,6 @@
       <list>
         <item itemvalue="Gradle.Vue v2 App [appRun]" />
         <item itemvalue="Gradle.Vue v2 App [publishToMavenLocal]" />
-        <item itemvalue="Gradle.Vue v2 App [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -1265,45 +1346,63 @@
       <workItem from="1530625419675" duration="593000" />
       <workItem from="1530634977399" duration="10454000" />
       <workItem from="1530649708504" duration="5925000" />
+      <workItem from="1530711438359" duration="441000" />
+      <workItem from="1530720974388" duration="2552000" />
+      <workItem from="1530731874717" duration="5392000" />
+      <workItem from="1530812133411" duration="4504000" />
+      <workItem from="1531154364781" duration="1285000" />
+      <workItem from="1531159369190" duration="7139000" />
+      <workItem from="1531243273036" duration="11778000" />
+      <workItem from="1531324187935" duration="3953000" />
+      <workItem from="1531331237968" duration="3384000" />
+      <workItem from="1531413426219" duration="953000" />
+      <workItem from="1531507434868" duration="604000" />
+      <workItem from="1531513431052" duration="598000" />
+      <workItem from="1531565320004" duration="625000" />
+      <workItem from="1531588665476" duration="1295000" />
+      <workItem from="1531758062457" duration="1959000" />
+      <workItem from="1531761186451" duration="1225000" />
+      <workItem from="1531765183504" duration="9893000" />
+      <workItem from="1531839002962" duration="11897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45906000" />
+    <option name="totallyTimeSpent" value="115383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50065106" side_tool="true" weight="0.23931624" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="CDI" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.42165244" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Persistence" order="3" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50065106" side_tool="true" weight="0.3988604" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="CDI" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.45441595" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32905984" />
+      <window_info id="Persistence" order="6" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20898438" />
-      <window_info anchor="right" id="Bean Validation" order="3" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Learn" order="2" />
-      <window_info anchor="right" id="Gradle" order="3" weight="0.17903645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20898438" />
+      <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Learn" order="4" />
+      <window_info anchor="right" id="Gradle" order="5" weight="0.17903645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="JSF" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32905984" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49934897" weight="0.3988604" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32905984" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Build" order="11" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32905984" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
@@ -1315,338 +1414,364 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="31" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/persistence.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/META-INF.iml" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/src/com/vue/app/repo/model/UsersEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/src/META-INF/persistence.xml" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.openjpa/openjpa/2.4.0/96cdbe2cd81bc24db2a4a963e5e9f84672925d6e/openjpa-2.4.0-sources.jar!/org/apache/openjpa/persistence/PersistenceProviderImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/master.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/plugins/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/bootstrap.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/bootstrap-datepicker.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/login.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/variables.scss" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+        <state relative-caret-position="152">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/src/META-INF/persistence.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/dataSources.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules/META-INF/persistence.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/modules/app_main.iml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/model/UsersEntity.java" />
-    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.18.RELEASE/6ce871ab6fbcc92da74aaa53861a33828b20e346/spring-core-4.3.18.RELEASE-sources.jar!/org/springframework/core/env/PropertySource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.html" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.7.RELEASE/5c096aa25285e3f8169b44c7dcf76166809921b1/spring-security-config-4.2.7.RELEASE.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/impl/UserDAOImpl.java" />
-    <entry file="file://$PROJECT_DIR$/gradlew">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/NoWebComponents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/RepositoryConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/FrontController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#754#755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/FormLoginConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
-          <folding>
-            <element signature="e#7819#7820#0" expanded="true" />
-            <element signature="e#7868#7869#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/ExceptionHandlingConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/AbstractAuthenticationFilterConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="129" column="13" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/authentication/configurers/provisioning/JdbcUserDetailsManagerConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/context/AbstractSecurityWebApplicationInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-772">
-          <caret line="75" column="22" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/SecurityWebApplicationInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.5.RELEASE/8bcd5b15133bb5423cdc9f33da7e4ac585fd783a/spring-context-4.2.5.RELEASE-sources.jar!/org/springframework/context/annotation/Import.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/util/matcher/RequestMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/LogoutConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="138" column="60" lean-forward="true" selection-start-line="138" selection-start-column="60" selection-end-line="138" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax/javaee-web-api/7.0/77d008d85d67de12f821827787d215ff68612407/javaee-web-api-7.0-sources.jar!/javax/persistence/Id.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/403.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/hello.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/accessDenied.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="64" column="8" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.5.2.RELEASE/ee4b8656308a0467ff7c20d15ccda6710c472757/spring-data-commons-1.5.2.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="39" column="62" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#659#660#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#834#835#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/web/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="164">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/vue.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/web/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/web/ErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.5.RELEASE/6d6268e82b35921d9daf4cfda9a2f1bd99afd87a/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/http/MediaType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Error.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.5.RELEASE/6d6268e82b35921d9daf4cfda9a2f1bd99afd87a/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/http/HttpStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3724">
+          <caret line="196" column="18" selection-start-line="196" selection-start-column="4" selection-end-line="196" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/RepositoryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServletResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/3.2.3.RELEASE/51380829a8afe7551ea1dad7d784beb52700b471/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/core/AuthenticationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/javax/naming/AuthenticationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/authentication/SimpleUrlAuthenticationFailureHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="974" column="45" selection-start-line="974" selection-start-column="45" selection-end-line="974" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/FormLoginConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="194" column="34" selection-start-line="194" selection-start-column="34" selection-end-line="194" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/3.2.3.RELEASE/7f0838968df666310721bd1dd308eb3c8da58c27/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/AbstractAuthenticationFilterConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="223" column="52" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/3.2.3.RELEASE/51380829a8afe7551ea1dad7d784beb52700b471/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/repo/dao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8322">
+          <caret line="474" selection-start-line="474" selection-end-line="474" />
+          <folding>
+            <element signature="e#19327#19328#0" expanded="true" />
+            <element signature="e#19410#19411#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/AbstractMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="210" selection-start-line="210" selection-end-line="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/3.2.3.RELEASE/51380829a8afe7551ea1dad7d784beb52700b471/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/dao/AbstractUserDetailsAuthenticationProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/3.2.3.RELEASE/51380829a8afe7551ea1dad7d784beb52700b471/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/3.2.3.RELEASE/51380829a8afe7551ea1dad7d784beb52700b471/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/ProviderManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="78" column="53" lean-forward="true" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/context/SecurityContextRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/context/HttpSessionSecurityContextRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="56" column="72" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.3.RELEASE/e8e7ff4545c57020127d4669cdb5574e84df0345/spring-security-web-3.2.3.RELEASE-sources.jar!/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="e#4752#4753#0" expanded="true" />
+            <element signature="e#4814#4815#0" expanded="true" />
+            <element signature="e#5268#5269#0" expanded="true" />
+            <element signature="e#5330#5331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthenticationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthFailureHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/home.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+        <state relative-caret-position="133">
+          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/register.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="266">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="54" column="43" lean-forward="true" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
           <folding>
-            <element signature="e#2#27#0" expanded="true" />
-            <element signature="e#2#18#0" expanded="true" />
+            <element signature="e#2#15#0" expanded="true" />
+            <element signature="e#2#17#0" expanded="true" />
+            <element signature="e#2#12#0" expanded="true" />
+            <element signature="e#2#12#0" expanded="true" />
+            <element signature="e#2#17#0" expanded="true" />
+            <element signature="e#2#16#0" expanded="true" />
+            <element signature="e#2#20#0" expanded="true" />
+            <element signature="e#2#17#0" expanded="true" />
+            <element signature="e#2#15#0" expanded="true" />
+            <element signature="e#2#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/web/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="41" column="8" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        <state relative-caret-position="122">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vue/app/config/AuthSuccessHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
