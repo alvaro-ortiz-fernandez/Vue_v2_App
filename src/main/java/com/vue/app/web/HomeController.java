@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import java.security.Principal;
 
 @Controller
 public class HomeController {
@@ -17,25 +17,19 @@ public class HomeController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-    public String index(Model model, HttpServletRequest request) {
-        List<User> users = userService.getAll();
-        model.addAttribute("users", users);
-
-        model.addAttribute("title", "Spring Security Login Form - Database Authentication");
-        model.addAttribute("message", "This is default page!");
-        model.addAttribute("principal", request.getUserPrincipal());
-
-        return "home/home";
+    // La app sólo tiene 1 controlador por GET (las rutas se gestionan en el front con Vue),
+    // si se intenta acceder a otra ruta redirigimos a '/'
+    @RequestMapping(value = { "/*" }, method = RequestMethod.GET)
+    public String anyother(Model model, Principal principal, HttpServletRequest request) {
+        return "redirect:/";
     }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(Model model, HttpServletRequest request) {
+    @RequestMapping(value = { "/" }, method = RequestMethod.GET)
+    public String app(Model model, Principal principal, HttpServletRequest request) {
 
-        model.addAttribute("title", "Spring Security Login Form - Database Authentication");
-        model.addAttribute("message", "This page is for ROLE_ADMIN only!");
-        model.addAttribute("principal", request.getUserPrincipal());
-        return "home/admin";
+        User user = principal == null ? null : userService.toPublicUser(userService.findById(principal.getName()).get());
 
+        model.addAttribute("user", user);
+        return "app/app";
     }
 }

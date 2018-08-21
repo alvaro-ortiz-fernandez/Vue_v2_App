@@ -21,11 +21,6 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return "login/login";
-    }
-
     @RequestMapping(value = "/registro", method = RequestMethod.POST,
     consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<?> registerForm(@RequestBody User user) {

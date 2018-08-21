@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/2005/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-	<meta name="_csrf" th:content="${_csrf.token}"/>
-    <title>login</title>
-    <template th:include="home/layout::scripts" th:remove="tag"></template>
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/login.css}">
-    <script type="module" th:src="@{/resources/js/login.js}"></script>
-</head>
-<body>
-	<div id="vue-root">
-		<loading-bar></loading-bar>
+<th:template th:fragment="login">
+	<script type="text/x-template" id="login" th:inline="javascript">
+		<!--<loading-bar></loading-bar>-->
 		<div class="container">
 			<div class="row">
 				<div class="login-registro col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-					<alert-box></alert-box>
+					<!--<alert-box></alert-box>-->
 					<transition name="login-component" mode="out-in">
 						<keep-alive>
 							<component v-bind:is="currentTabComponent"
@@ -27,14 +17,11 @@
 				</div>
 			</div> <!-- .row -->
 		</div> <!-- .container -->
-	</div> <!-- #vue-root -->
-
-	<!-- Variables para usar en plantillas: -->
-	<script type="text/javascript" th:inline="javascript">
-		var context = /*[[@{/}]]*/ 'default';
-		var error = /*[[${error}]]*/ 'default';
 	</script>
-	<!-- Plantilla login de usuario: -->
+</th:template>
+
+<!-- Plantilla login y registro -->
+<th:template th:fragment="login-form">
 	<script type="text/x-template" id="login-form" th:inline="javascript">
 		<div>
 			<div class="col-xs-12 header"></div>
@@ -77,5 +64,15 @@
 			</article>
 		</div>
 	</script>
-</body>
-</html>
+</th:template>
+
+<th:template th:fragment="login2">
+	<script type="text/x-template" id="login" th:inline="javascript">
+		<!--<loading-bar></loading-bar>-->
+		<div class="container">
+			<div class="row">
+				
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+	</script>
+</th:template>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/2005/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+    <title>chat</title>
+	<link rel="icon" th:href="@{/resources/images/app/app-logo.ico}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/plugins/bootstrap/bootstrap-materia.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/plugins/vue/material-icons.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/plugins/vue/vuetify.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/master.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/chat.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/user-card.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/loadingBar.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/css/alertBox.css}">
+	
+    <script type="text/javascript" th:src="@{/resources/js/plugins/jquery/jquery-3.2.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/plugins/bootstrap/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/plugins/vue/vue.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/plugins/vue/vuetify.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/js/plugins/vue/vue-router.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/plugins/vue/vue-resource.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/plugins/websockets/sockjs.min.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/js/plugins/websockets/stomp.min.js}"></script>
+
+	<script type="text/javascript" th:inline="javascript">
+		let path = /*[[@{/}]]*/ null;
+		let user = /*[[${user}]]*/ null;
+		let contacts = [];
+		let vm;
+	</script>
+	<th:template th:include="login/login::login" th:remove="tag"></th:template>
+	<th:template th:include="login/login::login-form" th:remove="tag"></th:template>
+	<th:template th:include="chat/chat::chat" th:remove="tag"></th:template>
+	<script type="module" th:src="@{/resources/js/public/app.js}"></script>
+</head>
+<body>
+	<div id="app">
+		<router-view></router-view>
+	</div>
+</body>
+</html>

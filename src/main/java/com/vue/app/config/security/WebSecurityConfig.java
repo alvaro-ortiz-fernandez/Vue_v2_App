@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/resources/**").permitAll().anyRequest().permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+                //.antMatchers("/chat/**")
             .and()
                 .formLogin()
                 .loginPage("/login")
@@ -49,8 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
-                .permitAll()
-            .and()
-                .exceptionHandling().accessDeniedPage("/denied");
+                .permitAll();
     }
 }

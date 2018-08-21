@@ -15,5 +15,6 @@ import java.util.List;
 * Y si queremos podemos añadir alguno para filtrar por otro campo/s.
 * */
 public interface UserDAO extends CrudRepository<User, String> {
-    List<User> findByUsername(String username);
+
+
 }

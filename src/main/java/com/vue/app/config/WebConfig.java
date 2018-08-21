@@ -11,23 +11,35 @@ import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
-// Clase de configuración para componentes web de Spring:
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.vue.app.web"})
+@ComponentScan(basePackages = { "com.vue.app.web" })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    /* Informar al servidor de aplicaciones de que sirva,
-     * los recursos estáticos en vez de el servlet: */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/");
     }
 
-    @Bean
-    public ITemplateResolver templateResolver() {
+    @Bean(name = "templateEngine")
+    public SpringTemplateEngine templateEngine() {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        return templateEngine;
+    }
 
+    @Bean(name = "viewResolver")
+    public ViewResolver viewResolver() {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding("UTF-8");
+
+        return viewResolver;
+    }
+
+    @Bean(name = "templateResolver")
+    public ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 
         templateResolver.setPrefix("/WEB-INF/views/");
@@ -37,25 +49,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         templateResolver.setCharacterEncoding("UTF-8");
 
         return templateResolver;
-    }
-
-    @Bean
-    public SpringTemplateEngine templateEngine() {
-
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-
-        return templateEngine;
-    }
-
-    @Bean
-    public ViewResolver viewResolver() {
-
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-
-        viewResolver.setTemplateEngine(templateEngine());
-        viewResolver.setCharacterEncoding("UTF-8");
-
-        return viewResolver;
     }
 }

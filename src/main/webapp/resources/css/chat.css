@@ -1,0 +1,144 @@
+body #app-chat a:hover, body #app-chat a:focus {
+  text-decoration: none; }
+body #app-chat input, body #app-chat input:focus {
+  box-shadow: none; }
+body #app-chat .pull-right {
+  text-align: right; }
+body #app-chat .v-autocomplete__content .v-list__tile--avatar.v-list__tile--active .v-list__tile__title {
+  color: #2e2e2e !important; }
+body #app-chat .menu-contactos .lista-contactos {
+  box-shadow: none; }
+  body #app-chat .menu-contactos .lista-contactos .desconectado .v-list__tile__content .v-list__tile__title, body #app-chat .menu-contactos .lista-contactos .desconectado .v-list__tile__content .v-list__tile__title small, body #app-chat .menu-contactos .lista-contactos .desconectado .v-list__tile__content .v-list__tile__sub-title {
+    color: #c8c8c8; }
+  body #app-chat .menu-contactos .lista-contactos .v-list__tile__title small {
+    color: #acacac; }
+  body #app-chat .menu-contactos .lista-contactos .escribiendo {
+    color: #32d332;
+    font-weight: bold; }
+body #app-chat .menu-contactos .contactos-footer {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%; }
+body #app-chat .container.fluid #chat-box {
+  height: 80vh; }
+  body #app-chat .container.fluid #chat-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    body #app-chat .container.fluid #chat-box ul li {
+      margin: 45px 0 0 0;
+      font-weight: 300; }
+      body #app-chat .container.fluid #chat-box ul li a.user {
+        margin: -30px 0 0 0;
+        display: block;
+        color: #333; }
+        body #app-chat .container.fluid #chat-box ul li a.user img {
+          width: 65px;
+          height: 65px;
+          border-radius: 50%;
+          background-color: white; }
+      body #app-chat .container.fluid #chat-box ul li .date {
+        font-size: 14px;
+        color: #a6a6a6; }
+      body #app-chat .container.fluid #chat-box ul li .message {
+        display: block;
+        padding: 10px;
+        position: relative;
+        font-size: 16px;
+        border-radius: 3px;
+        font-weight: 300; }
+        body #app-chat .container.fluid #chat-box ul li .message:before {
+          content: '';
+          position: absolute;
+          border-top: 16px solid rgba(0, 0, 0, 0.15);
+          border-left: 16px solid transparent;
+          border-right: 16px solid transparent; }
+        body #app-chat .container.fluid #chat-box ul li .message:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          border-top: 17px solid;
+          border-left: 17px solid transparent;
+          border-right: 17px solid transparent; }
+        body #app-chat .container.fluid #chat-box ul li .message.blur p {
+          -webkit-filter: blur(3px);
+          -moz-filter: blur(3px);
+          -o-filter: blur(3px);
+          -ms-filter: blur(3px);
+          filter: blur(3px); }
+        body #app-chat .container.fluid #chat-box ul li .message.blur .hider {
+          opacity: 1;
+          z-index: 1; }
+        body #app-chat .container.fluid #chat-box ul li .message p {
+          margin: 0;
+          padding: 0;
+          transition: all 0.1s; }
+        body #app-chat .container.fluid #chat-box ul li .message .hider {
+          opacity: 0;
+          z-index: -1;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          margin: -10px;
+          text-align: center;
+          cursor: pointer;
+          transform-style: preserve-3d;
+          transition: all 0.1s; }
+          body #app-chat .container.fluid #chat-box ul li .message .hider span {
+            display: block;
+            position: relative;
+            top: 50%;
+            font-size: 16px;
+            transform: translateY(-50%); }
+      body #app-chat .container.fluid #chat-box ul li.you a.user {
+        float: right; }
+      body #app-chat .container.fluid #chat-box ul li.you .date {
+        float: right;
+        margin: -20px 10px 0 0; }
+      body #app-chat .container.fluid #chat-box ul li.you .message {
+        margin: 0 90px 0 0;
+        color: white;
+        background: #5b65ff; }
+        body #app-chat .container.fluid #chat-box ul li.you .message:before {
+          margin: -9px -16px 0 0;
+          right: 0; }
+        body #app-chat .container.fluid #chat-box ul li.you .message:after {
+          content: '';
+          right: 0;
+          margin: 0 -15px 0 0;
+          border-top-color: #5b65ff; }
+      body #app-chat .container.fluid #chat-box ul li.other a.user {
+        float: left; }
+      body #app-chat .container.fluid #chat-box ul li.other .date {
+        float: left;
+        margin: -20px 0 0 10px; }
+      body #app-chat .container.fluid #chat-box ul li.other .message {
+        margin: 0 0 0 90px;
+        color: #1f40ad;
+        background: #e6e6e6; }
+        body #app-chat .container.fluid #chat-box ul li.other .message:before {
+          margin: -9px 0 0 -16px;
+          left: 0; }
+        body #app-chat .container.fluid #chat-box ul li.other .message:after {
+          content: '';
+          left: 0;
+          margin: 0 0 0 -15px;
+          border-top-color: #e6e6e6; }
+  body #app-chat .container.fluid #chat-box .panel-body {
+    height: calc(100% - 80px);
+    overflow-y: scroll; }
+    body #app-chat .container.fluid #chat-box .panel-body .list-enter-active, body #app-chat .container.fluid #chat-box .panel-body .list-leave-active {
+      transition: all 0.5s; }
+    body #app-chat .container.fluid #chat-box .panel-body .list-enter, body #app-chat .container.fluid #chat-box .panel-body .list-leave-to {
+      opacity: 0;
+      transform: translateY(30px); }
+  body #app-chat .container.fluid #chat-box .panel-footer {
+    padding-bottom: 0;
+    height: 80px; }
+    body #app-chat .container.fluid #chat-box .panel-footer .input-container {
+      bottom: 30px; }
+      body #app-chat .container.fluid #chat-box .panel-footer .input-container .v-input__slot, body #app-chat .container.fluid #chat-box .panel-footer .input-container .v-text-field__details {
+        margin: 0; }
+
+/*# sourceMappingURL=chat.css.map */
