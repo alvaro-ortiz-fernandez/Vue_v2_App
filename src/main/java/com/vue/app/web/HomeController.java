@@ -27,9 +27,7 @@ public class HomeController {
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String app(Model model, Principal principal, HttpServletRequest request) {
 
-        User user = principal == null ? null : userService.toPublicUser(userService.findById(principal.getName()).get());
-
-        model.addAttribute("user", user);
+        model.addAttribute("authenticated", principal != null);
         return "app/app";
     }
 }

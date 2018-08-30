@@ -9,9 +9,6 @@
 		"public/login.ts",
 		"public/chat.ts",
 
-		"services/alertBox.ts",
-		"services/eventBus.ts",
-		"services/loadingBar.ts",
 		"services/SocketClient.ts"
 	],
 	"compilerOptions": {

@@ -23,18 +23,21 @@ public class Message {
     private Date time;
     @Column(name = "readed")
     private boolean readed;
+    @Column(name = "conversation")
+    private boolean conversation;
 
     /* Atención a este constructor por defecto que sin él los métodos de WebSocket
     que tengan este objeto como parámetro de entrada no funcionarán */
     public Message() {}
 
-    public Message(int id, String message, String sender, String receiver, Date time, boolean readed) {
+    public Message(int id, String message, String sender, String receiver, Date time, boolean readed, boolean conversation) {
         this.id = id;
         this.message = message;
         this.sender = sender;
         this.receiver = receiver;
-        this. time = time;
-        this. readed = readed;
+        this.time = time;
+        this.readed = readed;
+        this.conversation = conversation;
     }
 
     public int getId() {
@@ -82,12 +85,20 @@ public class Message {
         return this;
     }
 
-    public boolean getReaded() {
+    public boolean isReaded() {
         return readed;
     }
 
     public Message setReaded(boolean readed) {
         this.readed = readed;
         return this;
+    }
+
+    public boolean isConversation() {
+        return conversation;
+    }
+
+    public void setConversation(boolean conversation) {
+        this.conversation = conversation;
     }
 }

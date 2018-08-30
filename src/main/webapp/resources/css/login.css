@@ -1,3 +1,94 @@
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body {
+  background: #4a3cc9;
+  background: -webkit-linear-gradient(right, #4a3cc9, #705ad1);
+  background: -moz-linear-gradient(right, #4a3cc9, #705ad1);
+  background: -o-linear-gradient(right, #4a3cc9, #705ad1);
+  background: linear-gradient(to left, #4a3cc9, #705ad1);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  body .login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto; }
+    body .login-page .form {
+      position: relative;
+      z-index: 1;
+      background: white;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
+      body .login-page .form .register-form {
+        display: none; }
+      body .login-page .form img {
+        height: 40%;
+        width: 40%;
+        margin-bottom: 10%; }
+      body .login-page .form .alert {
+        font-size: 13px;
+        margin: 20px 0 0 0;
+        padding-top: 15px;
+        padding-bottom: 15px; }
+        body .login-page .form .alert button, body .login-page .form .alert button:focus {
+          outline: none; }
+        body .login-page .form .alert .close {
+          margin-top: 3px; }
+      body .login-page .form input[type="text"], body .login-page .form input[type="password"], body .login-page .form input[type="email"] {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 23px 18px;
+        box-sizing: border-box;
+        font-size: 14px;
+        box-shadow: none; }
+        body .login-page .form input[type="text"]:focus, body .login-page .form input[type="password"]:focus, body .login-page .form input[type="email"]:focus {
+          box-shadow: none; }
+      body .login-page .form input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px #f2f2f2 inset !important; }
+      body .login-page .form input::placeholder {
+        color: #a0a0a0; }
+      body .login-page .form button[type="submit"] {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #7341fc;
+        transition: background 0.4s;
+        width: 100%;
+        border: 0;
+        padding: 12px;
+        color: #FFFFFF;
+        font-size: 16px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer; }
+        body .login-page .form button[type="submit"]:hover {
+          background: #4204ed;
+          transition: background 0.4s; }
+        body .login-page .form button[type="submit"] .fa-spin {
+          font-size: 20px; }
+      body .login-page .form button[disabled], body .login-page .form button[disabled]:hover, body .login-page .form button[disabled]:focus, body .login-page .form button[disabled]:active {
+        background: #aa8cfd;
+        cursor: context-menu; }
+      body .login-page .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+        min-height: 18px; }
+        body .login-page .form .message .link {
+          color: #4204ed;
+          transition: color 0.4s;
+          text-decoration: none; }
+          body .login-page .form .message .link:hover {
+            color: #2d03a1;
+            transition: color 0.4s; }
+        body .login-page .form .message .link, body .login-page .form .message .link:hover, body .login-page .form .message .link:focus, body .login-page .form .message .link:active {
+          outline: none;
+          background: none; }
 
 /*# sourceMappingURL=login.css.map */

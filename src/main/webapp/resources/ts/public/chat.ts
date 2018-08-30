@@ -1,16 +1,5 @@
 import { SocketClient } from "../services/SocketClient.js";
 
-contacts.forEach(function(contact: Contact) {
-	contact.messages = [];
-	messages.forEach(function(message: Message) {
-		if (message.sender == contact.username
-			|| message.receiver == contact.username) {
-
-			contact.messages.push(message);
-		}
-	});
-});
-
 let chat = Vue.component("chat", {
 	template: '#chat',
 	data():object {
@@ -18,16 +7,31 @@ let chat = Vue.component("chat", {
 			drawerLeft: null,	  // Desplegable izquierdo
 			drawerRight: false,	  // Desplegable derecho
 			bottomNav: 0,		  // Pestaña del menú inferior del desplegable izquierdo
+			dialogContact: { 	  // Modal para añadir un contacto
+				show: false,	  
+				contact: '',	  // Valor del input
+				loading: false,
+				alert: {
+					type: '',
+					message: '',
+					show: false
+				}
+			},
+			dialogGroup: { 	 	  // Modal para crear grupo
+				show: false,	  
+				group: '',	  // Valor del input
+				loading: false
+			},
 			snackbar: {		  	  // Mensaje de alerta superior derecho
 				show: false,
 				text: ""
 			},
 			nuevoMensaje: "",	  // Mensaje del input de escribir
-			user: user,			  // Usuario logeado, para diferenciarlo de los contactos
-			contacts: contacts,   // Contactos del desplegable izquierdo
+			user: {},			  // Usuario logeado, para diferenciarlo de los contactos
+			contacts: [],		  // Contactos del desplegable izquierdo
 			currentContact: null, // Controla el contacto del que mostrar el chat
 			socketClient: null,		  // Cliente de WebSockets
-			connectionPromise: null, // Promesa que es resuelta cuando se ha establecido conexión con el WebSocket
+			connectionPromise: null,  // Promesa que es resuelta cuando se ha establecido conexión con el WebSocket
 		}
 	},
 	computed: {
@@ -37,26 +41,41 @@ let chat = Vue.component("chat", {
 
 			// Ordenamos la lista de contactos por antiguedad de mensaje (cuanto más reciente mejor posición)
 			filteredContacts.sort(function(a: Contact, b: Contact): number {
-				return a.messages[a.messages.length-1].time < b.messages[b.messages.length-1].time ? 1 : -1;
+				if (b.messages.length === 0) {
+					return -1;
+				} else if (a.messages.length === 0) {
+					return 1;
+				} else {
+					return a.messages[a.messages.length-1].time < b.messages[b.messages.length-1].time ? 1 : -1;
+				}
 			});
 			
 			return filteredContacts;
 		},
+		notifications() {
+			let messages: Array<Message> = [];
+			this.contacts.forEach((contact: Contact) => {
+				messages = messages.concat(contact.messages);
+			});
+			messages = messages.filter(msj => msj.receiver == this.user.username && msj.readed == false);
+
+			return messages.length;
+		}
 		bottomNavColor() {	// Color del menú footer del desplegable izquierdo
 			switch (this.bottomNav) {
-				case 0: return "indigo"
-				case 1: return "teal lighten-1"
+				case 0: return "deep-purple accent-4";
+				case 1: return "blue accent-3";
 			}
 		}
 	},
-	mounted() {
+	created() {
 		let subcriptions: Map<string, subscriptionCallback> = new Map<string, subscriptionCallback>();
 		subcriptions.set("/user/queue/conexion", this.conexion);
-		subcriptions.set("/user/queue/escribiendo", this.usuarioEscribiendo);
 		subcriptions.set("/box/escribiendo", this.usuarioEscribiendo);
 		subcriptions.set("/box/nueva-conexion", this.nuevaConexion);
 		subcriptions.set("/box/desconexion", this.desconexion);
-		subcriptions.set("/box/nuevo-mensaje", this.mensajeRecibido);
+		subcriptions.set("/box/mensajes/nuevo", this.mensajeRecibido);
+		subcriptions.set("/user/queue/mensajes/leidos", this.mensajesLeidos);
 
 		// Hago toda esta parafernalia de promesas para controlar cuándo se ha establecido la conexión al servidor
 		let resolveConnection: Function;
@@ -75,11 +94,30 @@ let chat = Vue.component("chat", {
 	},
 	methods: {
 		conexion(response: any) {
-			// TODO: Parar pantalla de carga aquí
-			let usuariosConectados: Array<string> = response.body;
-			usuariosConectados.forEach((usuario: string) => {
+			let sesion: ChatSession = response.body;
+			this.user = sesion.user;
+
+			sesion.contacts.forEach(function(contact: Contact) {
+				contact.messages = [];
+				sesion.messages.forEach(function(message: Message) {
+					if (message.sender == contact.username
+						|| message.receiver == contact.username) {
+			
+						contact.messages.push(message);
+					}
+				});
+			});
+			this.contacts = sesion.contacts;
+
+			sesion.connections.forEach((usuario: string) => {
 				this.setConnected(usuario, true, false);
 			});
+
+			for (const user in sesion.writtingUsers) {
+				this.setWritting(user, sesion.writtingUsers[user]);
+			}
+			
+			setTimeout(() => { this.$root.loading = false; }, 500);
 		},
 		// Llamado por el servidor, cuando un nuevo usuario se conecta
 		nuevaConexion(response: any) {
@@ -90,8 +128,8 @@ let chat = Vue.component("chat", {
 			this.setConnected(response.body, false);
 		},
 		setConnected(username: string, connected: boolean, showSnackbar?: boolean) {
-			if (username != user.username) {
-				contacts.forEach((contact: Contact, index: number) => {
+			if (username != this.user.username) {
+				this.contacts.forEach((contact: Contact, index: number) => {
 					if (contact.username === username) {
 						let newValue = contact;
 						newValue.connected = connected;
@@ -100,6 +138,31 @@ let chat = Vue.component("chat", {
 					}
 				});
 			}
+		},
+		// Llamado por el modal de crear contacto
+		crearContacto() {
+			this.dialogContact.alert.show = false;
+			this.dialogContact.loading = true;
+			
+			this.$http.post(path + "contactos/nuevo", this.dialogContact.contact).then((response: any) => {
+				let contact: Contact = response.body;
+				contact.messages = [];
+				this.contacts.push(contact);
+
+				this.dialogContact.alert.type = "success";
+				this.dialogContact.alert.message = "Contacto agregado correctamente.";
+				this.dialogContact.alert.show = true;
+			}, (error: any) => {
+				this.dialogContact.alert.type = 'error';
+				if (error.status === 409) {
+					this.dialogContact.alert.message = error.body.message;
+				} else if (error.status === 0) {
+					this.dialogContact.alert.message = "El servidor no está disponible en estos momentos.";
+				} else {
+					this.dialogContact.alert.message = "Error interno del servidor: " + error.statusText;
+				}
+				this.dialogContact.alert.show = true;
+			}).then(() => { this.dialogContact.loading = false; });
 		},
 		// Avisa al servidor de si el usuario está escribiendo o deja de hacerlo
 		escribiendo(escribiendo: boolean) {
@@ -116,8 +179,8 @@ let chat = Vue.component("chat", {
 			}
 		},
 		setWritting(username: string, writting: boolean) {
-			if (username != user.username) {
-				contacts.forEach((contact: Contact, index: number) => {
+			if (username != this.user.username) {
+				this.contacts.forEach((contact: Contact, index: number) => {
 					let newValue = contact;
 					newValue.writting = writting;
 					this.contacts.splice(index, 1, newValue);
@@ -130,13 +193,13 @@ let chat = Vue.component("chat", {
 				message: this.nuevoMensaje,
 				receiver: this.contacts[this.currentContact].username
 			}
-			this.socketClient.sendMessage("nuevo-mensaje", message);
+			this.socketClient.sendMessage("mensajes/nuevo", message);
 			this.nuevoMensaje = "";
 			$("#inputEnviar").blur();
 		},
 		// Llamado desde el WebSocket cuando alguien escribe un nuevo mensaje
 		mensajeRecibido(mensaje: Message) {
-			contacts.forEach(function(contact: Contact) {
+			this.contacts.forEach(function(contact: Contact) {
 				if (mensaje.sender == contact.username || mensaje.receiver == contact.username)
 					contact.messages.push(mensaje);
 			});
@@ -144,15 +207,33 @@ let chat = Vue.component("chat", {
 			this.messagesScroll();
 		},
 		setCurrentContact(username: string) {
-			contacts.forEach((contact: Contact, index: number) => {
+			this.contacts.forEach((contact: Contact, index: number) => {
 				if (contact.username === username) {
 					this.currentContact = index;
+					this.markReaded(contact.messages);
+				}
+			});
+		},
+		markReaded(messages: Array<Message>) {
+			let readedMessages: Array<Message> = messages.filter(
+					message => message.readed == false && message.receiver == this.user.username);
+			if (readedMessages.length > 0)
+				this.socketClient.sendMessage("mensajes/leidos", readedMessages);
+		},
+		mensajesLeidos(response: any) {
+			let messages: Array<Message> = response.body;
+			this.contacts.find((contact: Contact) => {
+				return contact.username == messages[0].sender
+
+			}).messages.forEach((message: Message, index: number) => {
+				if (message.readed == false && messages.some((msj) => { return msj.id === message.id })) {
+					message.readed = true;
 				}
 			});
 		},
 		unreadMessages(messages: Array<Message>): number {
-			return messages.filter(function(message: Message) {
-				return message.receiver == user.username;
+			return messages.filter((message: Message) => {
+				return message.receiver == this.user.username && message.readed == false;
 			}).length;
 		},
 		showSnackbar(text: string) {
@@ -189,9 +270,9 @@ let chat = Vue.component("chat", {
 				return date.toLocaleDateString();
 			}
 		},
-		unreadMessages: function(messages: Array<Message>): number {
-			return messages.filter(function(message: Message) {
-				return message.receiver == user.username;
+		unreadMessages: function(messages: Array<Message>, username: string): number {
+			return messages.filter((message: Message) => {
+				return message.receiver == username && message.readed == false;
 			}).length;
 		}
 	}

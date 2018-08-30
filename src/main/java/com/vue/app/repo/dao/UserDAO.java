@@ -3,8 +3,6 @@ package com.vue.app.repo.dao;
 import com.vue.app.repo.model.User;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-
 /*
 * Al extender de CrudRepository<Entity, Id>, la interfaz gana los métodos:
 *   - save()              - count()

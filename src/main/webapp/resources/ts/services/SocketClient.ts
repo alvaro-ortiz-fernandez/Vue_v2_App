@@ -5,7 +5,7 @@
 class SocketClient {
 	private readonly endpoint: string;
 	private readonly subcriptions:  Map<string, subscriptionCallback>;
-	private readonly stompClient: StompClient;
+	readonly stompClient: StompClient;
 
 	constructor(endpoint: string, subcriptions: Map<string, subscriptionCallback>, resolveConnection?: Function) {
 		this.endpoint = endpoint;

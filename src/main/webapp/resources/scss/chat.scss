@@ -1,6 +1,6 @@
 @import "../scss/public/variables";
 
-body #app-chat {
+body #app {
 	& a:hover, & a:focus {
 		text-decoration: none;
 	}
@@ -11,6 +11,23 @@ body #app-chat {
 
 	& .pull-right {
 		text-align: right;
+	}
+
+	// Navbar
+	& .v-toolbar__content {
+		& .v-btn--icon, & .v-btn--icon:focus, & .v-btn--icon:active {
+			outline: none;
+		}
+
+		& .logout {
+			& button.v-btn--icon {
+				margin: 0;
+
+				& a {
+					color: white;
+				}
+			}
+		}
 	}
 
 	// Buscardor de contactos
@@ -32,19 +49,45 @@ body #app-chat {
 			& .escribiendo { color: rgb(50, 211, 50); font-weight: bold; }
 		}
 
+		// Menú de grupos
+		& .grupos {
+		}
+		
+		& .v-btn--fixed.v-btn--right {
+			margin-bottom: 60px;
+		}
+		
+		& .v-btn--fixed.v-btn--right, & .v-btn--fixed.v-btn--right:focus, & .v-btn--fixed.v-btn--right:active {
+			outline: none;
+		}
+
 		// Footer de contactos
 		& .contactos-footer {
 			position: absolute;
 			bottom: 0;
 			height: 60px;
 			width: 100%;
+
+			& .v-btn, & .v-btn:focus, & .v-btn:active, & .v-btn:hover {
+				outline: none;
+			}
+		}
+
+		& .change-bottom-nav-enter-active, & .change-bottom-nav-leave-active {
+			transition: all 1s;
+		}
+		& .change-bottom-nav-enter-active, .change-bottom-nav-leave-active {
+			transition: opacity 1.5s;
+		}
+		& .change-bottom-nav-enter, .change-bottom-nav-leave-to {
+			opacity: 0;
 		}
 	}
 
 	& .container.fluid {
 		// Mensajes de chat
 		& #chat-box {
-			height: 80vh;
+			height: 84vh;
 
 			& ul {
 				list-style: none;
@@ -217,13 +260,35 @@ body #app-chat {
 
 				// Input de enviar mensaje
 				& .input-container {
-					bottom: 30px;
+					margin-top: 20px;
 
 					& .v-input__slot, & .v-text-field__details {
 						margin: 0;
 					}
 				}
 			}
+
+			& .msg-bg {
+				height: 300px;
+				width: 350px;
+				margin-top: 10%;
+				margin-left: 28%;
+			}
 		} // / #chat-box
 	} // / .container-fluid
+
+	& .modal-contacto {
+		& .v-progress-linear {
+			margin: 0;
+		}
+		& .alert-container {
+			padding-top: 10px;
+
+			& .v-alert {
+				margin: 0;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
 }

@@ -19,6 +19,11 @@ public class Contact {
 
     public Contact() {}
 
+    public Contact(String user, String contact) {
+        this.user = user;
+        this.contact = contact;
+    }
+
     public Contact(int id, String user, String contact) {
         this.id = id;
         this.user = user;

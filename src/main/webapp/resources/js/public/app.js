@@ -1,5 +1,7 @@
 import { login } from "../public/login.js";
 import { chat } from "../public/chat.js";
+Vue.http.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
+Vue.http.headers.common['Accept'] = 'application/json';
 vm = new Vue({
     el: "#app",
     router: new VueRouter({ routes: [
@@ -8,14 +10,11 @@ vm = new Vue({
         ] }),
     data: {
         path: path,
-        user: user
+        authenticated: authenticated,
+        loading: false
     },
-    computed: {
-        authenticated() {
-            return this.user != null ? true : false;
-        }
-    },
-    mounted() {
+    created() {
+        this.authenticated ? this.loading = true : '';
         this.$router.push(this.authenticated ? 'chat' : 'login');
     }
 });

@@ -26,13 +26,13 @@ public class LoginController {
     public @ResponseBody ResponseEntity<?> registerForm(@RequestBody User user) {
         // Si el nombre de usuario ya está devolvemos el error para tratarlo en el front:
         if (userService.exists(user.getUsername())) {
-            return new ResponseEntity<>(new Error(env.getProperty("registro.yaexiste")), HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(new Error(env.getProperty("registro.yaexiste")), HttpStatus.CONFLICT);
         } else {
             try {
                 user = userService.register(user);
             } catch (Exception e) {
                 // Si se produce error inesperado también lo tratamos en el front, diferenciándolo con otro código de HttpStatus:
-                return new ResponseEntity<>(new Error(e.getCause().getMessage()), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(new Error(e.getCause().getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
             }
             return new ResponseEntity<>(user, HttpStatus.OK);
         }

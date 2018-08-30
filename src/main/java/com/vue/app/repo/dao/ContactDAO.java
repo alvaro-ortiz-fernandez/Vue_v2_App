@@ -16,4 +16,6 @@ import java.util.List;
 * */
 public interface ContactDAO extends CrudRepository<Contact, String> {
     List<Contact> findByUser(String user);
+
+    List<Contact> findByUserAndContact(String user, String contact);
 }

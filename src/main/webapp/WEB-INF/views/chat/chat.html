@@ -2,14 +2,14 @@
 	<script type="text/x-template" id="chat" th:inline="javascript">
 		<v-app id="inspire">
 			<!-- / Menú derecho de info -->
-			<v-navigation-drawer v-model="drawerRight" fixed right clipped app>
+			<v-navigation-drawer v-model="drawerRight" fixed right clipped app :stateless="dialogContact.show">
 				<div class="card user-card" v-if="currentContact != null">
 					<div class="card-face face-1">
 						<div class="card-face__avatar">
 							<span class="card-face__bullet" v-if="unreadMessages(contacts[currentContact].messages) > 0">
-								{{ contacts[currentContact].messages | unreadMessages }}
+								{{ contacts[currentContact].messages | unreadMessages(user.username) }}
 							</span>
-							<img :src="path + 'resources/images/avatars/' + contacts[currentContact].avatar + '.jpg'"
+							<img :src="path + 'resources/images/avatars/' + contacts[currentContact].avatar + '.png'"
 								width="110" height="110" draggable="false"/>
 						</div>
 						<h2 class="card-face__name">{{ contacts[currentContact].username }}</h2>
@@ -26,76 +26,102 @@
 				</div>
 			</v-navigation-drawer> <!-- / Menú derecho de info -->
 
-			<!-- Menú izquierdo de contactos -->
+			<!-- Menú izquierdo -->
 			<v-navigation-drawer fixed :clipped="$vuetify.breakpoint.mdAndUp" app v-model="drawerLeft" width="400"
-				class="menu-contactos">
+				class="menu-contactos" :stateless="dialogContact.show">
 
+				<!-- Content -->
 				<v-layout justify-center>
-					<v-flex xs12>
-						<!-- autocomplete -->
-						<v-card>
-							<v-card-text>
-								<v-autocomplete label="Buscar contactos" v-bind:items="contacts" item-text="name"
-								item-value="name" max-height="auto" color="indigo accent-3" prepend-icon="search">
-									<template slot="selection" scope="data"></template>
-									<template slot="item" scope="data">
-										<template>
-											<v-layout @click="setCurrentContact(data.item.username)">
+					<transition name="change-bottom-nav">
+						<!-- Contactos -->
+						<template v-if="bottomNav == 0" transition="change-bottom-nav">
+							<v-flex xs12>
+								<!-- autocomplete -->
+								<v-card>
+									<v-card-text>
+										<v-autocomplete label="Buscar contactos" v-bind:items="contacts" item-text="name"
+										item-value="name" max-height="auto" color="indigo accent-3" prepend-icon="search">
+											<template slot="selection" scope="data"></template>
+											<template slot="item" scope="data">
+												<template>
+													<v-layout @click="setCurrentContact(data.item.username)">
+														<v-list-tile-avatar>
+															<img v-bind:src="path + 'resources/images/avatars/' + data.item.avatar + '.png'"/>
+														</v-list-tile-avatar>
+														<v-list-tile-content>
+															<v-list-tile-title v-html="data.item.username"></v-list-tile-title>
+															<v-list-tile-sub-title>Group 1</v-list-tile-sub-title>
+														</v-list-tile-content>
+													</v-layout>
+												</template>
+											</template>
+										</v-autocomplete>
+									</v-card-text>
+								</v-card> <!-- / autocomplete -->
+								
+								<!-- Lista de contactos -->
+								<v-card class="lista-contactos">
+									<v-list two-line>
+										<template v-for="(contact, index) in filteredContacts">
+											<v-list-tile :key="contact.username" avatar ripple @click="setCurrentContact(contact.username)"
+											:class="{ desconectado: !contact.connected }">
 												<v-list-tile-avatar>
-													<img v-bind:src="path + 'resources/images/avatars/' + data.item.avatar + '.jpg'"/>
+													<v-badge color="red" overlap>
+														<span slot="badge" v-if="unreadMessages(contact.messages) > 0">
+															{{ contact.messages | unreadMessages(user.username) }}
+														</span>
+														<v-avatar>
+															<img :src="path + 'resources/images/avatars/' + contact.avatar + '.png'"></img>
+														</v-avatar>
+													</v-badge>
 												</v-list-tile-avatar>
 												<v-list-tile-content>
-													<v-list-tile-title v-html="data.item.username"></v-list-tile-title>
-													<v-list-tile-sub-title>Group 1</v-list-tile-sub-title>
+													<v-list-tile-title>
+														{{ contact.username }}
+														<small class="pull-right" v-if="contact.messages.length > 0">
+															{{ contact.messages[contact.messages.length-1].time | formatDate }}
+														</small>
+													</v-list-tile-title>
+													<v-list-tile-sub-title>
+														<span v-if="contact.messages.length > 0">
+															{{ contact.messages[contact.messages.length-1].message }}
+														</span>
+														<span v-if="contact.writting && contact.connected" class="escribiendo pull-right">
+															{{ contact.username }} está escribiendo...
+														</span>
+													</v-list-tile-sub-title>
 												</v-list-tile-content>
-											</v-layout>
+											</v-list-tile>
 										</template>
-									</template>
-								</v-autocomplete>
-							</v-card-text>
-						</v-card> <!-- / autocomplete -->
-						
-						<!-- Lista de contactos -->
-						<v-card class="lista-contactos">
-							<v-list two-line>
-								<template v-for="(contact, index) in filteredContacts">
-									<v-list-tile :key="contact.username" avatar ripple @click="setCurrentContact(contact.username)"
-									:class="{ desconectado: !contact.connected }" v-bind:testxxx="!contact.connected">
-										<v-list-tile-avatar>
-											<v-badge color="red" overlap>
-												<span slot="badge" v-if="unreadMessages(contact.messages) > 0">
-													{{ contact.messages | unreadMessages }}
-												</span>
-												<v-avatar>
-													<img :src="path + 'resources/images/avatars/' + contact.avatar + '.jpg'"></img>
-												</v-avatar>
-											</v-badge>
-										</v-list-tile-avatar>
-										<v-list-tile-content>
-											<v-list-tile-title>
-												{{ contact.username }}
-												<small class="pull-right">{{ contact.messages[contact.messages.length-1].time | formatDate }}</small>
-											</v-list-tile-title>
-											<v-list-tile-sub-title>
-												<span>{{ contact.messages[contact.messages.length-1].message }}</span>
-												<span v-if="contact.writting && contact.connected" class="escribiendo pull-right">{{ contact.username }} está escribiendo...</span>
-											</v-list-tile-sub-title>
-										</v-list-tile-content>
-									</v-list-tile>
-								</template>
-							</v-list>
-						</v-card> <!-- Lista de contactos -->
-					</v-flex>
-				</v-layout>
+									</v-list>
+								</v-card>
 
-				<!-- Contactos footer -->
+								<v-btn fab bottom right color="amber" dark fixed @click.stop="dialogContact.show = true">
+									<v-icon>add</v-icon>
+								</v-btn>
+							</v-flex>
+						</template> <!-- / Contactos -->
+
+						<!-- Grupos -->
+						<template v-else-if="bottomNav == 1">
+							<v-flex xs12 class="grupos">
+								<h3>Grupos</h3>
+								<v-btn fab bottom right color="amber" dark fixed @click.stop="dialogGroup.show = true">
+									<v-icon>add</v-icon>
+								</v-btn>
+							</v-flex>
+						</template> <!-- / Grupos -->
+					</transition>
+				</v-layout> <!-- / Content -->
+
+				<!-- Footer -->
 				<v-layout class="contactos-footer">
 					<v-flex>
 						<v-card>
 							<v-bottom-nav :active.sync="bottomNav" :color="bottomNavColor" :value="true" shift height="60px">
 								<v-btn dark>
 									<span>Contactos</span>
-									<v-icon>account_box</v-icon>
+									<v-icon>contact_phone</v-icon>
 								</v-btn>
 								
 								<v-btn dark>
@@ -105,8 +131,8 @@
 							</v-bottom-nav>
 						</v-card>
 					</v-flex>
-				</v-layout> <!-- / Contactos footer -->
-			</v-navigation-drawer> <!-- / Menú izquierdo de contactos -->
+				</v-layout> <!-- / Footer -->
+			</v-navigation-drawer> <!-- / Menú izquierdo -->
 
 			<!-- Navbar -->
 			<v-toolbar color="deep-purple accent-4" dark app :clipped-left="$vuetify.breakpoint.mdAndUp" fixed>
@@ -116,19 +142,23 @@
 				</v-toolbar-title>
 
 				<v-spacer></v-spacer>
-				<v-btn icon><v-icon>apps</v-icon></v-btn>
+
 				<v-btn icon>
 					<v-badge color="red">
-						<span slot="badge">2</span>
+						<span slot="badge" v-if="notifications > 0">{{ notifications }}</span>
 						<v-icon>notifications</v-icon>
 					</v-badge>
 				</v-btn>
-				<v-btn icon><v-icon>person</v-icon></v-btn>
-				<v-btn icon large>
-					<v-avatar size="32px" tile>
-						<img :src="path + 'resources/images/app/app-logo.ico'" alt="Vuetify">
-					</v-avatar>
-				</v-btn>
+				<v-tooltip bottom>
+					<v-btn icon slot="activator"><v-icon>person</v-icon></v-btn>
+					<span>{{ user.username }}</span>
+				</v-tooltip>
+				<v-tooltip bottom class="logout">
+					<v-btn icon slot="activator">
+						<a :href="path + 'logout'"><v-icon>account_balance_wallet</v-icon></a>
+					</v-btn>
+					<span>Cerrar sesión</span>
+				</v-tooltip>
 				<v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
 			</v-toolbar> <!-- / Navbar -->
 
@@ -138,32 +168,101 @@
 				<v-btn color="light-blue accent-2" flat @click="snackbar = false">Cerrar</v-btn>
 			</v-snackbar> <!-- / Tooltip de alerta -->
 
+			<!-- Modal de crear contacto -->
+			<v-dialog v-model="dialogContact.show" width="800px">
+				<v-card class="modal-contacto">
+					<v-card-title class="grey lighten-4 py-4 title">Nuevo contacto</v-card-title>
+
+					<v-progress-linear :indeterminate="true" v-if="dialogContact.loading"></v-progress-linear>
+					<div v-else style="height: 7px;"></div>
+
+				  	<v-container grid-list-sm class="pa-4">
+						<v-layout row wrap>
+					  		<v-flex xs12 align-center justify-space-between>
+								<v-layout align-center>
+						 			<v-avatar size="40px" class="mr-3">
+										<img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" alt="">
+									 </v-avatar>
+									 
+									<v-text-field @keyup.enter="crearContacto" placeholder="Nombre"
+									v-model="dialogContact.contact"  color="indigo accent-2"></v-text-field>
+								</v-layout>
+
+								<v-layout class="alert-container">
+									<v-alert :value="dialogContact.alert.show" :type="dialogContact.alert.type" dismissible transition="scale-transition">
+										{{ dialogContact.alert.message }}
+									</v-alert>
+								</v-layout>
+							</v-flex>
+						</v-layout>
+					</v-container>
+					  
+					<v-card-actions>
+						<v-spacer></v-spacer>
+						<v-btn flat @click="dialogContact.show = false">Cancelar</v-btn>
+						<v-btn flat color="indigo accent-2" @click.prevent="crearContacto">Crear</v-btn>
+					</v-card-actions>
+				</v-card>
+			</v-dialog> <!-- Modal de crear contacto -->
+
+			<!-- Modal de crear grupo -->
+			<v-dialog v-model="dialogGroup.show" width="800px">
+				<v-card>
+					<v-card-title class="grey lighten-4 py-4 title">Nuevo grupo</v-card-title>
+
+				  	<v-container grid-list-sm class="pa-4">
+						<v-layout row wrap>
+					  		<v-flex xs12 align-center justify-space-between>
+								<v-layout align-center>
+						 			<v-avatar size="40px" class="mr-3">
+										<img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" alt="">
+									 </v-avatar>
+									 
+									<v-text-field placeholder="Nombre"></v-text-field>
+								</v-layout>
+							</v-flex>
+						</v-layout>
+					</v-container>
+					  
+					<v-card-actions>
+						<v-spacer></v-spacer>
+						<v-btn flat color="primary" @click="dialogGroup.show = false">Cancelar</v-btn>
+						<v-btn flat>Crear</v-btn>
+					</v-card-actions>
+				</v-card>
+			</v-dialog> <!-- Modal de crear grupo -->
+
 			<!-- Panel de chat -->
-			<v-content v-if="currentContact != null">
+			<v-content>
 				<v-container fluid>
 					<div id="chat-box" class="justify-center panel panel-default">
-						<div id="messages" class="panel-body">
-							<transition-group name="list" tag="ul">
-								<li v-for="(message, index) in contacts[currentContact].messages"
-								:class="message.sender == user.username ? 'you' : 'other'" :key="index">
-									<a class="user" href="#"><img :alt="contacts[currentContact].avatar + '.jpg'"
-										:src="path + 'resources/images/avatars/' + (message.sender == user.username ? user.avatar : contacts[currentContact].avatar) + '.jpg'"></a>
-									<div class="date">{{ message.time | formatDate }}</div>
-									<div class="message">
-										<p>{{ message.message }}</p>
-									</div>
-								</li>
-							</transition-group>
-						</div>
-						<!-- Input de escribir mensaje -->
-						<div class="panel-footer">
-							<div class="input-container">
-								<v-text-field id="inputEnviar"v-model="nuevoMensaje" append-outer-icon="send" required
-								label="Escribe un mensaje" outline clearable color="indigo accent-3"
-								@click:append-outer="enviarMensaje()" @keydown.enter="enviarMensaje()"
-								@focus="escribiendo(true)" @blur="escribiendo(false)"></v-text-field>
+						<template v-if="currentContact != null">
+							<div id="messages" class="panel-body">
+								<transition-group name="list" tag="ul">
+									<li v-for="(message, index) in contacts[currentContact].messages"
+									:class="message.sender == user.username ? 'you' : 'other'" :key="index">
+										<a class="user" href="#"><img :alt="contacts[currentContact].avatar + '.png'"
+											:src="path + 'resources/images/avatars/' + (message.sender == user.username ? user.avatar : contacts[currentContact].avatar) + '.png'"></a>
+										<div class="date">{{ message.time | formatDate }}</div>
+										<div class="message">
+											<p>{{ message.message }}</p>
+										</div>
+									</li>
+								</transition-group>
 							</div>
-						</div> <!-- / Input de escribir mensaje -->
+							<!-- Input de escribir mensaje -->
+							<div class="panel-footer">
+								<div class="input-container">
+									<v-text-field id="inputEnviar"v-model="nuevoMensaje" append-outer-icon="send" required
+									label="Escribe un mensaje" outline clearable color="indigo accent-3"
+									@click:append-outer="enviarMensaje()" @keydown.enter="enviarMensaje()"
+									@focus="escribiendo(true)" @blur="escribiendo(false)"></v-text-field>
+								</div>
+							</div> <!-- / Input de escribir mensaje -->
+						</template>
+						<template v-else>
+							<img class="msg-bg" :src="path + 'resources/images/chat/cantact-bg.png'" draggable="false"/>
+						</template>
 					</div>
 				</v-container>
 			</v-content> <!-- / Panel de chat -->

@@ -1,0 +1,43 @@
+.loader {
+  z-index: 9999;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: #3c60ff; }
+
+.loader div {
+  text-align: center;
+  margin-top: 25vh;
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 30vh;
+  color: #fff;
+  opacity: 0.8; }
+
+.loader div span {
+  display: inline-block;
+  -webkit-animation: pulse 0.4s alternate infinite ease-in-out;
+  animation: pulse 0.4s alternate infinite ease-in-out; }
+
+.loader div span:nth-child(odd) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s; }
+
+.loading-enter-active, .loading-leave-active {
+  transition: opacity 0.3s; }
+
+.loading-enter, .loading-leave-to {
+  opacity: 0; }
+
+@-webkit-keyframes pulse {
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.5; } }
+@keyframes pulse {
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.5; } }
+
+/*# sourceMappingURL=loading.css.map */

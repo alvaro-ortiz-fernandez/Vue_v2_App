@@ -1,20 +1,19 @@
-// Colores generales:
-$rojoRegistro: rgba(207, 58, 38, 0.932);
-$morado: #9B00FF;
-$azulLogin: #5B40C4;
-$azulMedio: #5F46DA;
-$verde: #49CE35;
-$grisClaro: #E9E9E9;
-$grisOscuro: #353535;
+// Colores generales
 
-// Chat:
+
+// Login
+$AzulLogin: #7341fc;
+$bgAzulOscuro: #4a3cc9;
+$bgAzulClaro: #705ad1;
+
+// Chat
 $imageAltTextColor: #333;
 $UserMessageColor: white;
 $UserMessageBackground: rgb(91, 101, 255);
 $OtherMessageColor: rgb(31, 64, 173);
 $OtherMessageBackground: rgb(230, 230, 230);
 
-// Tamaños de pantalla:
+// Tamaños de pantalla
 $xs: 768px;
 $sm: 992px;
 $md: 1200px;

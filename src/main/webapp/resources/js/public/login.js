@@ -1,109 +1,80 @@
-import { eventBus, Event, EventType, BootstrapClass } from "../services/eventBus.js";
-import { loadingBar } from "../services/loadingBar.js";
-import { alertBox } from "../services/alertBox.js";
-let vm = new Vue({});
-Vue.component("login-form", {
-    props: ["tab", "toggle"],
-    template: "#login-form",
+let login = Vue.component("login", {
+    template: "#login",
     data() {
         return {
-            formPath: "login-processing"
+            currentTab: "login",
+            loading: false,
+            alert: {
+                show: false,
+                cssClass: 'alert-danger',
+                message: 'Error interno del servidor. Por favor, vuelva a intentarlo.'
+            },
+            registerForm: {
+                username: '',
+                password: ''
+            }
         };
     },
     methods: {
-        submitForm(event) {
-            eventBus.post(EventType.Loading, new Event(true));
-            /* No me gusta hacerlo con el ajax de jQuery, pero
-            no encuentro cómo hacer que funcione con spring sec */
+        login() {
+            this.alert.show = false;
+            this.loading = true;
             $.ajax({
                 url: "login-processing",
                 type: "POST",
-                data: $('#form').serialize(),
-            }).done(function (message) {
-                eventBus.post(EventType.Alert, new Event(message, BootstrapClass.Success));
-                setTimeout(function () {
-                    window.location.pathname = "/app";
-                }, 2000);
-            }).fail(function (xhr, status, errorThrown) {
-                eventBus.post(EventType.Alert, new Event("Error", BootstrapClass.Danger));
-            }).always(function (xhr, status) {
-                eventBus.post(EventType.Loading, new Event(false));
-            });
-        }
-    }
-});
-Vue.component("registro-form", {
-    props: ["tab", "toggle"],
-    template: "#login-form",
-    data() {
-        return {
-            formPath: "registro"
-        };
-    },
-    methods: {
-        submitForm(event) {
-            eventBus.post(EventType.Loading, new Event(true));
-            let loginForm = $(document.forms[0]);
-            let user = JSON.stringify({
-                username: loginForm.find('input[name="username"]').val(),
-                password: loginForm.find('input[name="password"]').val()
-            });
-            this.$http.post("registro", user, {
-                headers: {
-                    'X-CSRF-Token': $("meta[name='_csrf']").attr("content"),
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json;charset=UTF-8'
+                data: $(".login-form").serialize()
+            }).done((message) => {
+                this.$root.loading = true;
+                setTimeout(() => { this.$root.$router.push('chat'); }, 500);
+            }).fail((xhr, status, errorThrown) => {
+                if (xhr.status === 401 && xhr.responseText == "null") {
+                    this.showAlert("El usuario y/o contraseña son incorrectos.", "alert-danger");
                 }
-                /* Atención a la expresión lambda, gracias a ella no se pierde el contexto
-                de 'this' (para JavaScript no es necesario pero sí para TypeScript): */
-            }).then((response) => {
-                eventBus.post(EventType.Alert, new Event("Usuario logeado correctamente", BootstrapClass.Success));
-            }, (error) => {
-                eventBus.post(EventType.Alert, new Event(error.data.message, BootstrapClass.Danger));
-            }).then(() => {
-                eventBus.post(EventType.Loading, new Event(false));
+                else {
+                    this.showAlert("Error interno del servidor: " + xhr.responseText, "alert-danger");
+                }
+            }).always((xhr, status) => {
+                this.loading = false;
             });
-        }
-    }
-});
-let login = Vue.component("login", {
-    template: "#login",
-    components: {
-        'alert-box': alertBox,
-        'loading-bar': loadingBar
-    },
-    data() {
-        return {
-            currentTab: "login"
-        };
-    },
-    created() {
-        let url = new URL(window.location.href);
-        let view = url.searchParams.get("view");
-        if (view != null && (view == "login" || view == "registro")) {
-            this.currentTab = view;
-        }
-    },
-    computed: {
-        currentTabComponent() {
-            return this.currentTab.toLowerCase() + "-form";
         },
-        currentClass() {
-            return "bloque-" + this.currentTab.toLowerCase();
-        }
-    },
-    methods: {
-        rotate() {
-            if (this.currentTab == "login") {
-                this.currentTab = "registro";
-            }
-            else {
-                this.currentTab = "login";
-            }
+        register() {
+            this.alert.show = false;
+            this.loading = true;
+            let data = JSON.stringify({
+                username: this.registerForm.username,
+                password: this.registerForm.password
+            });
+            $.ajax({
+                url: "registro",
+                type: "POST",
+                data: data,
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Accept': 'application/json'
+                }
+            }).done((message) => {
+                this.showAlert("Usuario registrado correctamente.", "alert-success");
+            }).fail((xhr, status, errorThrown) => {
+                if (xhr.status === 409) {
+                    this.showAlert("El usuario introducido ya existe.", "alert-danger");
+                }
+                else {
+                    this.showAlert("Error interno del servidor: " + errorThrown, "alert-danger");
+                }
+            }).always((xhr, status) => {
+                this.loading = false;
+            });
+        },
+        changeView(action) {
+            this.currentTab = action;
+            this.alert.show = false;
+            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        },
+        showAlert(message, cssClass) {
+            this.alert.message = message;
+            this.alert.cssClass = cssClass;
+            this.alert.show = true;
         }
     }
 });
-let login2 = Vue.component("login", {
-    template: "#login2"
-});
-export { login, login2 };
+export { login };

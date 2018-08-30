@@ -13,10 +13,18 @@ interface Error {
 // Chat.ts
 declare global {
 	const path: string;
-	const user: User;
+	const authenticated: boolean;
 	const contacts: Array<Contact>;
 	const messages: Array<Message>;
 	let vm: any;
+
+	type ChatSession = {
+		user: User,
+		contacts: Array<Contact>,
+		messages: Array<Message>,
+		connections: Array<string>,
+		writtingUsers: Object
+	}
 
 	interface User {
 		username: string;

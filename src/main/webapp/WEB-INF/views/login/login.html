@@ -1,78 +1,44 @@
 <th:template th:fragment="login">
 	<script type="text/x-template" id="login" th:inline="javascript">
-		<!--<loading-bar></loading-bar>-->
-		<div class="container">
-			<div class="row">
-				<div class="login-registro col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-					<!--<alert-box></alert-box>-->
-					<transition name="login-component" mode="out-in">
-						<keep-alive>
-							<component v-bind:is="currentTabComponent"
-								v-bind:class="currentClass"
-								v-bind:tab="currentTab"
-								v-bind:toggle="rotate">
-							</component>
-						</keep-alive>
-					</transition>
-				</div>
-			</div> <!-- .row -->
-		</div> <!-- .container -->
-	</script>
-</th:template>
+		<div class="login-page">
+			<div class="form">
+				<img :src="path + 'resources/images/app/app-logo.png'" alt="chat">
+				<form class="login-form" @submit.prevent="login()" method='POST'>
+					<input type="text" placeholder="usuario" name="username" />
+					<input type="password" placeholder="contraseña" name="password" />
 
-<!-- Plantilla login y registro -->
-<th:template th:fragment="login-form">
-	<script type="text/x-template" id="login-form" th:inline="javascript">
-		<div>
-			<div class="col-xs-12 header"></div>
-			<div class="logo"></div>
-			<article class="col-xs-12 content">
-				<div class="form-signin">
-					<h2 v-if="tab == 'login'" class="form-signin-heading text-center" th:text="#{login.iniciar}">Iniciar sesión</h2>
-					<h2 v-if="tab == 'registro'" class="form-signin-heading text-center" th:text="#{registro.titulo}">Registro</h2>
+					<button type="submit" :disabled="loading">
+						<span v-if="!loading">Login</span>
+						<span v-if="loading"><i class="fa fa-circle-o-notch fa-spin"></i></span>
+					</button>
+					<p class="message">
+						<template v-if="!loading">
+							¿No tienes cuenta? 
+							<button class="link" @click.prevent="changeView('registro')">Registrate aquí.</button>
+						</template>
+					</p>
+				</form>
+				<form class="register-form" @submit.prevent="register()" method='POST'>
+					<input type="text" placeholder="usuario" name="username" v-model="registerForm.username" />
+					<input type="password" placeholder="contraseña" name="password" v-model="registerForm.password" />
+
+					<button type="submit" :disabled="loading">
+						<span v-if="!loading">Registrar</span>
+						<span v-if="loading"><i class="fa fa-circle-o-notch fa-spin"></i></span>
+					</button>
+					<p class="message">
+						<template v-if="!loading">
+							¿Ya tienes cuenta? 
+							<button class="link" @click.prevent="changeView('login')">Inicia sesión aquí.</button>
+						</template>
+					</p>
+			  	</form>
 					
-					<form id="form" name='userDTO' @submit.prevent="submitForm" method='POST'>
-						<!-- Usuario: -->
-						<label for="username" class="sr-only" th:text="#{login.user}">Usuario</label>
-						<input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required autofocus spellcheck="false">
-						<!-- Contraseña -->
-						<label for="password" class="sr-only" th:text="#{login.pass}">Contraseña</label>
-						<input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required spellcheck="false">
-		
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" name="session" id="session" value="1">Mantenerme conectado
-							</label>
-							<a th:href="@{/home}" class="pull-right"><span class="glyphicon glyphicon-log-out"></span></a>
-						</div>
-						
-						<p v-if="tab == 'login'">
-							<span th:text="#{login.sincuenta}">¿No tienes cuenta?</span>
-							<button @click.prevent="toggle" th:text="#{login.registra}">Registrate aquí.</button>
-						</p>
-						
-						<p v-if="tab == 'registro'">
-							<span th:text="#{registro.concuenta}">¿Ya tienes cuenta?</span>
-							<button @click.prevent="toggle" th:text="#{registro.inicia}">Inicia sesión aquí.</button>
-						</p>
-		
-						<input v-if="tab == 'login'" name="submit" type="submit" th:value="#{login.iniciar}" class="btn btn-primary" />
-						<input v-if="tab == 'registro'" name="submit" type="submit" th:value="#{registro.crear}" class="btn btn-primary" />
-						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-					</form>
+				<div class="alert alert-dismissible" :class="[{ 'd-none': !alert.show }, alert.cssClass]">
+					<button type="button" class="close" @click.prevent="alert.show = false">&times;</button>
+					{{ alert.message }}
 				</div>
-			</article>
+			</div>
 		</div>
-	</script>
-</th:template>
-
-<th:template th:fragment="login2">
-	<script type="text/x-template" id="login" th:inline="javascript">
-		<!--<loading-bar></loading-bar>-->
-		<div class="container">
-			<div class="row">
-				
-			</div> <!-- .row -->
-		</div> <!-- .container -->
 	</script>
 </th:template>
